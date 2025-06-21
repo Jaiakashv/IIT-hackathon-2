@@ -10,7 +10,7 @@ export default defineConfig({
   
   // Build configuration
   build: {
-    outDir: "build",
+    outDir: "dist",  // Changed from 'build' to 'dist' for Vercel compatibility
     sourcemap: true,  // Enable source maps for better debugging
     chunkSizeWarningLimit: 2000,  // Increase chunk size warning limit
     rollupOptions: {
