@@ -5,17 +5,74 @@ import tagger from "@dhiwise/component-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  // This changes the out put dir from dist to build
-  // comment this out if that isn't relevant for your project
+  // Base public path when served in production
+  base: '/',  // Update this if deploying to a subdirectory
+  
+  // Build configuration
   build: {
     outDir: "build",
-    chunkSizeWarningLimit: 2000,
+    sourcemap: true,  // Enable source maps for better debugging
+    chunkSizeWarningLimit: 2000,  // Increase chunk size warning limit
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          // Split vendor dependencies into separate chunks
+          react: ['react', 'react-dom', 'react-router-dom'],
+          // Add other large dependencies here
+        },
+      },
+    },
+    // Minify the output for production
+    minify: 'esbuild',
+    // Enable brotli compression
+    brotliSize: true,
   },
-  plugins: [tsconfigPaths(), react(), tagger()],
+  
+  // Development server configuration
   server: {
-    port: "4028",
+    port: 4028,
     host: "0.0.0.0",
     strictPort: true,
-    allowedHosts: ['.amazonaws.com', '.builtwithrocket.new']
-  }
+    allowedHosts: ['.amazonaws.com', '.builtwithrocket.new'],
+    // Enable HMR (Hot Module Replacement)
+    hmr: {
+      overlay: true,
+    },
+  },
+  
+  // Plugins
+  plugins: [
+    tsconfigPaths(),
+    react({
+      // Enable Fast Refresh
+      fastRefresh: true,
+      // Enable JSX in .jsx and .tsx files
+      include: ['**/*.tsx', '**/*.ts', '**/*.jsx', '**/*.js'],
+    }),
+    tagger(),
+  ],
+  
+  // Optimize dependencies
+  optimizeDeps: {
+    include: ['react', 'react-dom', 'react-router-dom'],
+    // Enable esbuild optimizations
+    esbuildOptions: {
+      target: 'es2020',
+    },
+  },
+  
+  // Environment variables
+  define: {
+    'process.env': {}
+  },
+  
+  // CSS configuration
+  css: {
+    devSourcemap: true,  // Enable source maps for CSS in development
+    modules: {
+      // Configure CSS modules
+      scopeBehaviour: 'local',
+      localsConvention: 'camelCaseOnly',
+    },
+  },
 });
