@@ -10,43 +10,84 @@ const HeroSection = () => {
     visible: {
       opacity: 1,
       transition: {
-        duration: 0.6,
-        staggerChildren: 0.2
+        duration: 0.8,
+        staggerChildren: 0.2,
+        when: "beforeChildren"
       }
     }
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
+    hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.6, ease: "easeOut" }
+      transition: { 
+        duration: 0.6, 
+        ease: [0.16, 1, 0.3, 1],
+        type: "spring",
+        damping: 12,
+        stiffness: 100
+      }
+    }
+  };
+
+  const floatingVariants = {
+    animate: {
+      y: [0, -15, 0],
+      transition: {
+        duration: 6,
+        repeat: Infinity,
+        ease: "easeInOut"
+      }
     }
   };
 
   return (
-    <section className="relative bg-gradient-to-br from-primary-50 to-secondary-50 py-16 lg:py-24 overflow-hidden">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-10 left-10 w-20 h-20 bg-primary rounded-full"></div>
-        <div className="absolute top-32 right-20 w-16 h-16 bg-secondary rounded-full"></div>
-        <div className="absolute bottom-20 left-1/4 w-12 h-12 bg-accent rounded-full"></div>
-        <div className="absolute bottom-32 right-1/3 w-8 h-8 bg-primary rounded-full"></div>
+    <section className="relative bg-gradient-to-br from-gray-50 to-blue-50 py-20 lg:py-32 overflow-hidden">
+      {/* Animated Background Elements */}
+      <div className="absolute inset-0 overflow-hidden">
+        <motion.div 
+          className="absolute -top-20 -left-20 w-64 h-64 rounded-full bg-blue-100 opacity-30"
+          animate={{
+            scale: [1, 1.2, 1],
+            x: [0, 20, 0],
+            y: [0, 30, 0],
+          }}
+          transition={{
+            duration: 15,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+        />
+        <motion.div 
+          className="absolute -bottom-40 -right-40 w-96 h-96 rounded-full bg-indigo-100 opacity-20"
+          animate={{
+            scale: [1, 1.1, 1],
+            x: [0, -30, 0],
+            y: [0, -20, 0],
+          }}
+          transition={{
+            duration: 20,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 2
+          }}
+        />
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="grid lg:grid-cols-2 gap-12 items-center"
+          className="grid lg:grid-cols-2 gap-16 items-center"
         >
           {/* Content */}
           <div className="text-center lg:text-left">
             <motion.div variants={itemVariants} className="mb-6">
-              <span className="inline-flex items-center px-4 py-2 bg-primary-100 text-primary rounded-full text-sm font-medium mb-4">
-                <Icon name="Sparkles" size={16} className="mr-2" />
+              <span className="inline-flex items-center px-4 py-2 bg-white text-primary-600 rounded-full text-sm font-medium shadow-sm border border-gray-100">
+                <Icon name="Sparkles" size={16} className="mr-2 text-yellow-500" />
                 Transform Your Career Today
               </span>
               <h1 className="text-4xl lg:text-6xl font-bold text-text-primary mb-6 leading-tight">
