@@ -1,0 +1,308 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Primary Colors */
+    --color-primary: #1E40AF; /* Deep blue (primary) - blue-800 */
+    --color-primary-50: #EFF6FF; /* Very light blue (50-level shade) - blue-50 */
+    --color-primary-100: #DBEAFE; /* Light blue (100-level shade) - blue-100 */
+    --color-primary-500: #3B82F6; /* Medium blue (500-level shade) - blue-500 */
+    --color-primary-600: #2563EB; /* Darker blue (600-level shade) - blue-600 */
+    --color-primary-700: #1D4ED8; /* Dark blue (700-level shade) - blue-700 */
+    
+    /* Secondary Colors */
+    --color-secondary: #7C3AED; /* Complementary purple (secondary) - violet-600 */
+    --color-secondary-50: #F5F3FF; /* Very light purple (50-level shade) - violet-50 */
+    --color-secondary-100: #EDE9FE; /* Light purple (100-level shade) - violet-100 */
+    --color-secondary-500: #8B5CF6; /* Medium purple (500-level shade) - violet-500 */
+    
+    /* Accent Colors */
+    --color-accent: #F59E0B; /* Warm amber (accent) - amber-500 */
+    --color-accent-50: #FFFBEB; /* Very light amber (50-level shade) - amber-50 */
+    --color-accent-100: #FEF3C7; /* Light amber (100-level shade) - amber-100 */
+    --color-accent-600: #D97706; /* Darker amber (600-level shade) - amber-600 */
+    
+    /* Background Colors */
+    --color-background: #FAFBFC; /* Soft off-white (background) - slate-50 */
+    --color-surface: #FFFFFF; /* Pure white (surface) - white */
+    
+    /* Text Colors */
+    --color-text-primary: #1F2937; /* Near-black (text primary) - gray-800 */
+    --color-text-secondary: #6B7280; /* Medium gray (text secondary) - gray-500 */
+    
+    /* Status Colors */
+    --color-success: #10B981; /* Fresh green (success) - emerald-500 */
+    --color-success-50: #ECFDF5; /* Very light green (50-level shade) - emerald-50 */
+    --color-success-100: #D1FAE5; /* Light green (100-level shade) - emerald-100 */
+    
+    --color-warning: #F59E0B; /* Consistent with accent (warning) - amber-500 */
+    --color-warning-50: #FFFBEB; /* Very light amber (50-level shade) - amber-50 */
+    --color-warning-100: #FEF3C7; /* Light amber (100-level shade) - amber-100 */
+    
+    --color-error: #EF4444; /* Clear red (error) - red-500 */
+    --color-error-50: #FEF2F2; /* Very light red (50-level shade) - red-50 */
+    --color-error-100: #FEE2E2; /* Light red (100-level shade) - red-100 */
+    
+    /* Border Colors */
+    --color-border: #E5E7EB; /* Light gray (border) - gray-200 */
+    --color-border-light: #F3F4F6; /* Very light gray (border light) - gray-100 */
+  }
+  
+  html {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+  
+  body {
+    background-color: var(--color-background);
+    color: var(--color-text-primary);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+}
+
+/* 3D Background Animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  33% { transform: translateY(-20px) rotate(5deg); }
+  66% { transform: translateY(10px) rotate(-5deg); }
+}
+
+@keyframes floatReverse {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  33% { transform: translateY(10px) rotate(-3deg); }
+  66% { transform: translateY(-15px) rotate(3deg); }
+}
+
+@keyframes rotate3d {
+  0% { transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg); }
+  100% { transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg); }
+}
+
+@keyframes pulse3d {
+  0%, 100% { transform: scale3d(1, 1, 1); }
+  50% { transform: scale3d(1.05, 1.05, 1.05); }
+}
+
+@keyframes wave {
+  0%, 100% { transform: translateY(0px) rotateZ(0deg); }
+  25% { transform: translateY(-10px) rotateZ(1deg); }
+  75% { transform: translateY(10px) rotateZ(-1deg); }
+}
+
+@keyframes morphing {
+  0%, 100% { border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; }
+  34% { border-radius: 70% 30% 50% 50% / 30% 50% 70% 50%; }
+  67% { border-radius: 100% 60% 60% 100% / 100% 100% 60% 60%; }
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-primary text-white px-6 py-3 rounded-lg font-medium transition-all duration-300 ease-out hover:scale-105 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50 transform-gpu;
+    box-shadow: 0 4px 15px rgba(30, 64, 175, 0.2);
+  }
+  
+  .btn-primary:hover {
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 8px 25px rgba(30, 64, 175, 0.3);
+  }
+  
+  .btn-secondary {
+    @apply bg-secondary text-white px-6 py-3 rounded-lg font-medium transition-all duration-300 ease-out hover:scale-105 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-opacity-50 transform-gpu;
+    box-shadow: 0 4px 15px rgba(124, 58, 237, 0.2);
+  }
+  
+  .btn-secondary:hover {
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 8px 25px rgba(124, 58, 237, 0.3);
+  }
+  
+  .btn-accent {
+    @apply bg-accent text-white px-6 py-3 rounded-lg font-medium transition-all duration-300 ease-out hover:scale-105 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-accent focus:ring-opacity-50 transform-gpu;
+    box-shadow: 0 4px 15px rgba(245, 158, 11, 0.2);
+  }
+  
+  .btn-accent:hover {
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 8px 25px rgba(245, 158, 11, 0.3);
+  }
+  
+  .card {
+    @apply bg-surface rounded-xl shadow-lg border border-border-light p-6 transition-all duration-300 ease-out transform-gpu backdrop-blur-sm;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.8));
+  }
+  
+  .card:hover {
+    transform: translateY(-8px) rotateX(5deg) rotateY(5deg);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  }
+  
+  .card-3d {
+    @apply bg-surface rounded-xl shadow-lg border border-border-light p-6 transition-all duration-500 ease-out transform-gpu;
+    perspective: 1000px;
+    transform-style: preserve-3d;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.85));
+    backdrop-filter: blur(10px);
+  }
+  
+  .card-3d:hover {
+    transform: translateY(-15px) rotateX(10deg) rotateY(10deg) scale(1.02);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+  }
+  
+  .card-elevated {
+    @apply bg-surface rounded-xl shadow-xl p-6 transition-all duration-300 ease-out transform-gpu;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.9));
+  }
+  
+  .card-elevated:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+  }
+  
+  .input-field {
+    @apply w-full px-4 py-3 border border-border rounded-md bg-surface text-text-primary placeholder-text-secondary focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300 ease-out transform-gpu;
+  }
+  
+  .input-field:focus {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 15px rgba(30, 64, 175, 0.1);
+  }
+  
+  .nav-link {
+    @apply text-text-primary font-medium transition-all duration-300 ease-out hover:text-primary focus:outline-none focus:text-primary transform-gpu;
+  }
+  
+  .nav-link:hover {
+    transform: translateY(-1px);
+  }
+  
+  .nav-link-active {
+    @apply text-primary font-medium;
+  }
+  
+  .bg-3d-pattern {
+    background: 
+      radial-gradient(circle at 25% 25%, rgba(30, 64, 175, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 75% 75%, rgba(124, 58, 237, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 50% 50%, rgba(245, 158, 11, 0.05) 0%, transparent 50%);
+    background-size: 400px 400px, 300px 300px, 200px 200px;
+    animation: gradientShift 15s ease infinite;
+  }
+  
+  .floating-element {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .floating-element-reverse {
+    animation: floatReverse 8s ease-in-out infinite;
+  }
+  
+  .rotating-3d {
+    animation: rotate3d 20s linear infinite;
+  }
+  
+  .pulsing-3d {
+    animation: pulse3d 3s ease-in-out infinite;
+  }
+  
+  .wave-animation {
+    animation: wave 4s ease-in-out infinite;
+  }
+  
+  .morphing-shape {
+    animation: morphing 8s ease-in-out infinite;
+  }
+}
+
+@layer utilities {
+  .scale-102 {
+    transform: scale(1.02);
+  }
+  
+  .scale-105 {
+    transform: scale(1.05);
+  }
+  
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+  
+  .preserve-3d {
+    transform-style: preserve-3d;
+  }
+  
+  .backface-hidden {
+    backface-visibility: hidden;
+  }
+  
+  .transform-gpu {
+    transform: translateZ(0);
+  }
+  
+  .shadow-card {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+  
+  .shadow-interactive {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .shadow-3d {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(255, 255, 255, 0.1);
+  }
+  
+  .shadow-3d-hover {
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(255, 255, 255, 0.2);
+  }
+  
+  .shadow-modal {
+    box-shadow: 0 20px 25px rgba(0, 0, 0, 0.1);
+  }
+  
+  .text-fluid-sm {
+    font-size: clamp(0.875rem, 0.8rem + 0.375vw, 1rem);
+  }
+  
+  .text-fluid-base {
+    font-size: clamp(1rem, 0.9rem + 0.5vw, 1.125rem);
+  }
+  
+  .text-fluid-lg {
+    font-size: clamp(1.125rem, 1rem + 0.625vw, 1.25rem);
+  }
+  
+  .text-fluid-xl {
+    font-size: clamp(1.25rem, 1.1rem + 0.75vw, 1.5rem);
+  }
+  
+  .text-fluid-2xl {
+    font-size: clamp(1.5rem, 1.3rem + 1vw, 1.875rem);
+  }
+  
+  .text-fluid-3xl {
+    font-size: clamp(1.875rem, 1.6rem + 1.375vw, 2.25rem);
+  }
+  
+  .backdrop-blur-3d {
+    backdrop-filter: blur(20px) saturate(180%);
+  }
+  
+  .glass-effect {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+}
