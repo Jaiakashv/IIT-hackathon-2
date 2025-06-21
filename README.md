@@ -17,6 +17,7 @@ I have created a **professional UI-themed tech website** with a clean and modern
 
 * Designed a fun, quiz-like assessment system.
 * Displays user scores after quiz completion.
+* Integrated an **Interactive Code Playground** where users can write and test code in real-time.
 
 ---
 
