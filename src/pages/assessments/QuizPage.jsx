@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
+import CodePlayground from './components/CodePlayground';
 
 // Sample questions for each quiz category
 const quizQuestions = {
@@ -227,6 +228,14 @@ const QuizPage = () => {
           >
             ← Back to All Quizzes
           </button>
+        </div>
+      </div>
+      
+      {/* Code Playground Section */}
+      <div className="mt-16 p-6 bg-white rounded-lg shadow-lg border border-blue-200">
+        <h2 className="text-2xl font-bold text-gray-800 mb-6">Interactive Code Playground</h2>
+        <div className="border-2 border-dashed border-blue-300 rounded-lg p-4">
+          <CodePlayground />
         </div>
       </div>
     </div>
