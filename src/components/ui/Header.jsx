@@ -9,6 +9,7 @@ const Header = () => {
   const navigationItems = [
     { label: 'Home', path: '/home-dashboard', icon: 'Home' },
     { label: 'Programs', path: '/programs-catalog', icon: 'BookOpen' },
+    { label: 'Assessments', path: '/assessments', icon: 'ClipboardCheck' },
     { label: 'About', path: '/about-us', icon: 'Users' },
     { label: 'Verify', path: '/certificate-verification', icon: 'Shield' },
     { label: 'Contact', path: '/contact-faq', icon: 'MessageCircle' },

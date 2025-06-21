@@ -1,5 +1,5 @@
 // src/pages/home-dashboard/index.jsx
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Breadcrumb from 'components/ui/Breadcrumb';
 import AnimatedBackground from 'components/ui/AnimatedBackground';
 import HeroSection from './components/HeroSection';
@@ -7,6 +7,7 @@ import MetricsDashboard from './components/MetricsDashboard';
 import WhyChooseUs from './components/WhyChooseUs';
 import TestimonialSection from './components/TestimonialSection';
 import Footer from './components/Footer';
+import UpcomingEvents from './components/UpcomingEvents';  // Add this import
 
 const HomeDashboard = () => {
   return (
@@ -24,6 +25,9 @@ const HomeDashboard = () => {
 
         {/* Metrics Dashboard */}
         <MetricsDashboard />
+
+        {/* Upcoming Events */}
+        <UpcomingEvents />
 
         {/* Why Choose Us Section */}
         <WhyChooseUs />

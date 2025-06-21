@@ -345,17 +345,10 @@ const ProgramsCatalog = () => {
             {/* Desktop Sidebar */}
             <div className="hidden lg:block w-64 flex-shrink-0">
               <FilterSidebar
-                categories={[...new Set(programs.map(program => program.category))]}
-                activeCategory={selectedFilters.category[0] || ''}
-                onCategoryChange={(category) => handleFilterChange('category', category)}
-                sortBy={sortBy}
-                onSortChange={setSortBy}
-                sortOptions={[
-                  { value: 'popularity', label: 'Most Popular' },
-                  { value: 'rating', label: 'Highest Rated' },
-                  { value: 'price-low', label: 'Price: Low to High' },
-                  { value: 'price-high', label: 'Price: High to Low' }
-                ]}
+                selectedFilters={selectedFilters}
+                onFilterChange={handleFilterChange}
+                onClearFilters={clearFilters}
+                programs={programs}
               />
             </div>
 

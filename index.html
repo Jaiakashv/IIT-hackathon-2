@@ -46,10 +46,11 @@
     <meta http-equiv="Content-Security-Policy" 
           content="default-src 'self';
                   script-src 'self' 'unsafe-eval' 'wasm-unsafe-eval' https://static.rocket.new;
-                  style-src 'self' 'unsafe-inline';
+                  style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+                  style-src-elem 'self' 'unsafe-inline' https://fonts.googleapis.com;
                   img-src 'self' data: https:;
-                  font-src 'self' data:;
-                  connect-src 'self' https://static.rocket.new https://edutechpl2935back.builtwithrocket.new;
+                  font-src 'self' data: https://fonts.gstatic.com;
+                  connect-src 'self' https://static.rocket.new https://edutechpl2935back.builtwithrocket.new https://fonts.googleapis.com https://fonts.gstatic.com;
                   frame-src 'self' https://static.rocket.new;
                   media-src 'self';
                   object-src 'none';
