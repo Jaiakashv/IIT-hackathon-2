@@ -1,107 +1,28 @@
-# React
+I have created an professional UI themed Tech website. 
+as the tech website should be in professional look and should not be added much animations to looks clumsy so I decided to make the UI professional 
+features : 
+#in Home page :
+•I have implemented an 3d background effects and added some important contents with eye catching fonts and aninations.
+• I have an new feature ( upcoming webinars and events )
 
-A modern React-based project utilizing the latest frontend technologies and tools for building responsive web applications.
+#Assement page : 
+•I have implemented an fun quiz like an assessment with marks for the users
+In program page : •filter options( sort by price) , most popular ( filter).
+• When I click on Enroll the payment page will pop up and ask the payment method.
 
-## 🚀 Features
+#In About page - 
+• i have mentioned mission and vision 
+and I have use glass morphic design for cards. 
+• I have coded the filter options for the our team members. 
 
-- **React 18** - React version with improved rendering and concurrent features
-- **Vite** - Lightning-fast build tool and development server
-- **Redux Toolkit** - State management with simplified Redux setup
-- **TailwindCSS** - Utility-first CSS framework with extensive customization
-- **React Router v6** - Declarative routing for React applications
-- **Data Visualization** - Integrated D3.js and Recharts for powerful data visualization
-- **Form Management** - React Hook Form for efficient form handling
-- **Animation** - Framer Motion for smooth UI animations
-- **Testing** - Jest and React Testing Library setup
+#Verify Certificate page :
+•I have given sample testing of certificates ID. it will display how the original verify will be outputed and we can also download the verification.
+• some frequently asked questions will be displayed to helps the new user for any doubts.
 
-## 📋 Prerequisites
+#In contact page : 
+• I have FAQ with search options
+• A help Bot to help the users for any kind of help they need regarding this tech community.
 
-- Node.js (v14.x or higher)
-- npm or yarn
-
-## 🛠️ Installation
-
-1. Install dependencies:
-   ```bash
-   npm install
-   # or
-   yarn install
-   ```
-   
-2. Start the development server:
-   ```bash
-   npm start
-   # or
-   yarn start
-   ```
-
-## 📁 Project Structure
-
-```
-react_app/
-├── public/             # Static assets
-├── src/
-│   ├── components/     # Reusable UI components
-│   ├── pages/          # Page components
-│   ├── styles/         # Global styles and Tailwind configuration
-│   ├── App.jsx         # Main application component
-│   ├── Routes.jsx      # Application routes
-│   └── index.jsx       # Application entry point
-├── .env                # Environment variables
-├── index.html          # HTML template
-├── package.json        # Project dependencies and scripts
-├── tailwind.config.js  # Tailwind CSS configuration
-└── vite.config.js      # Vite configuration
-```
-
-## 🧩 Adding Routes
-
-To add new routes to the application, update the `Routes.jsx` file:
-
-```jsx
-import { useRoutes } from "react-router-dom";
-import HomePage from "pages/HomePage";
-import AboutPage from "pages/AboutPage";
-
-const ProjectRoutes = () => {
-  let element = useRoutes([
-    { path: "/", element: <HomePage /> },
-    { path: "/about", element: <AboutPage /> },
-    // Add more routes as needed
-  ]);
-
-  return element;
-};
-```
-
-## 🎨 Styling
-
-This project uses Tailwind CSS for styling. The configuration includes:
-
-- Forms plugin for form styling
-- Typography plugin for text styling
-- Aspect ratio plugin for responsive elements
-- Container queries for component-specific responsive design
-- Fluid typography for responsive text
-- Animation utilities
-
-## 📱 Responsive Design
-
-The app is built with responsive design using Tailwind CSS breakpoints.
-
-
-## 📦 Deployment
-
-Build the application for production:
-
-```bash
-npm run build
-```
-
-## 🙏 Acknowledgments
-
-- Built with [Rocket.new](https://rocket.new)
-- Powered by React and Vite
-- Styled with Tailwind CSS
-
-Built with ❤️ on Rocket.new
+#Login/ Register page : 
+• i have sign up and sign in in single page 
+• I have options to login with google and LinkedIn
