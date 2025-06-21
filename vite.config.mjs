@@ -66,6 +66,9 @@ export default defineConfig({
     'process.env': {}
   },
   
+  // Static assets handling
+  assetsInclude: ['**/*.woff', '**/*.woff2', '**/*.ttf', '**/*.eot'],
+  
   // CSS configuration
   css: {
     devSourcemap: true,  // Enable source maps for CSS in development
@@ -73,6 +76,25 @@ export default defineConfig({
       // Configure CSS modules
       scopeBehaviour: 'local',
       localsConvention: 'camelCaseOnly',
+    },
+  },
+  
+  // Build optimization for assets
+  build: {
+    outDir: "dist",
+    assetsDir: 'assets',
+    rollupOptions: {
+      output: {
+        assetFileNames: (assetInfo) => {
+          let extType = assetInfo.name.split('.').at(1);
+          if (/png|jpe?g|svg|gif|tiff|bmp|ico/i.test(extType)) {
+            extType = 'images';
+          } else if (/woff|woff2|eot|ttf|otf/i.test(extType)) {
+            extType = 'fonts';
+          }
+          return `assets/${extType}/[name]-[hash][extname]`;
+        },
+      },
     },
   },
 });
