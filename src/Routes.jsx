@@ -12,6 +12,7 @@ import UserAuthentication from './pages/user-authentication';
 import CertificateVerification from './pages/certificate-verification';
 import Assessments from './pages/assessments/Assessments';
 import QuizPage from './pages/assessments/QuizPage';
+import MentorshipCommunity from './pages/mentorship-community';
 
 const Layout = ({ children }) => {
   return (
@@ -38,6 +39,7 @@ const Routes = () => {
           <Route path="/certificate-verification" element={<Layout><CertificateVerification /></Layout>} />
           <Route path="/assessments" element={<Layout><Assessments /></Layout>} />
           <Route path="/assessments/quiz/:category" element={<Layout><QuizPage /></Layout>} />
+          <Route path="/mentorship-community" element={<Layout><MentorshipCommunity /></Layout>} />
         </RouterRoutes>
       </ErrorBoundary>
     </BrowserRouter>

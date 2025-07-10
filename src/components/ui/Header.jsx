@@ -10,7 +10,8 @@ const Header = () => {
     { label: 'Home', path: '/home-dashboard', icon: 'Home' },
     { label: 'Programs', path: '/programs-catalog', icon: 'BookOpen' },
     { label: 'Assessments', path: '/assessments', icon: 'ClipboardCheck' },
-    { label: 'About', path: '/about-us', icon: 'Users' },
+    { label: 'Mentorship', path: '/mentorship-community', icon: 'Users' },
+    { label: 'About', path: '/about-us', icon: 'Info' },
     { label: 'Verify', path: '/certificate-verification', icon: 'Shield' },
     { label: 'Contact', path: '/contact-faq', icon: 'MessageCircle' },
   ];
